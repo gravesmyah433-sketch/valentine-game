@@ -1,0 +1,7 @@
+const music = document.getElementById("music");
+
+function startGame() {
+  music.play();
+}<button onclick="startGame()">START</button>
+music.volume = 0.4;
+
