@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Aubree 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;500&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffd1dc, #fff0f5);
+  overflow: hidden;
+}
+
+/* 🌸 FLOWER BORDER */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  border: 20px solid transparent;
+  border-image: url("https://i.imgur.com/8Km9tLL.png") 30 round;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.slide {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  padding: 40px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.slide.active {
+  display: flex;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #b03060;
+}
+
+p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  color: #5a2a2a;
+}
+
+button {
+  margin: 12px;
+  padding: 14px 34px;
+  border-radius: 40px;
+  border: none;
+  background: #ff5c8a;
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255,92,138,0.4);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* 💖 FLOATING HEARTS */
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* ✨ CLICK HEARTS */
+.click-heart {
+  font-size: 2.5rem;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.hidden { display: none; }
+
+/* 💗 BIG FINAL HEART */
+.big-heart {
+  font-size: 6rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING DECOR HEARTS -->
+<script>
+for (let i = 0; i < 25; i++) {
+  let h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💖";
+  h.style.left = Math.random()*100 + "vw";
+  h.style.bottom = "-10vh";
+  h.style.animationDuration = 4 + Math.random()*4 + "s";
+  document.body.appendChild(h);
+}
+</script>
+
+<!-- SLIDES -->
+
+<div class="slide active">
+  <h1>For My Forever Valentine 💕</h1>
+  <p>A little world I made just for you.</p>
+  <button onclick="next()">Enter</button>
+</div>
+
+<div class="slide">
+  <p>You matter. You are loved. And you are so deeply important to me.</p>
+  <button onclick="next()">Continue</button>
+</div>
+
+<div class="slide">
+  <h1>Pick your vibe 💗</h1>
+  <button onclick="next()">Soft & sweet</button>
+  <button onclick="next()">Cute & chaotic</button>
+  <button onclick="next()">Quiet but deep</button>
+</div>
+
+<div class="slide">
+  <h1>Click all the hearts 💖</h1>
+  <div id="heartGame">
+    <span class="click-heart" onclick="this.remove()">💗</span>
+    <span class="click-heart" onclick="this.remove()">💖</span>
+    <span class="click-heart" onclick="this.remove()">💕</span>
+    <span class="click-heart" onclick="this.remove()">💘</span>
+  </div>
+  <button onclick="next()">All done</button>
+</div>
+
+<div class="slide">
+  <h1>Tap for love magic ✨</h1>
+  <button onclick="this.innerText='You make everything feel warmer 💕'">Tap me</button>
+  <button onclick="next()">Continue</button>
+</div>
+
+<div class="slide">
+  <h1>Things I adore about you</h1>
+  <button onclick="this.innerText='Your heart 💗'">Reveal</button>
+  <button onclick="this.innerText='Your smile 😊'">Reveal</button>
+  <button onclick="this.innerText='Your soul ✨'">Reveal</button>
+  <button onclick="next()">Continue</button>
+</div>
+
+<div class="slide">
+  <h1>Pick a memory</h1>
+  <button onclick="next()">A quiet moment</button>
+  <button onclick="next()">A laugh we shared</button>
+  <button onclick="next()">A look that said everything</button>
+</div>
+
+<div class="slide">
+  <h1>You are my safe place</h1>
+  <p>No matter what, you calm my world.</p>
+  <button onclick="next()">Continue</button>
+</div>
+
+<div class="slide">
+  <h1>Build the heart 💗</h1>
+  <button onclick="this.innerText='Love'">Click</button>
+  <button onclick="this.innerText='Trust'">Click</button>
+  <button onclick="this.innerText='Us'">Click</button>
+  <button onclick="next()">Finish</button>
+</div>
+
+<!-- FINAL SLIDE -->
+<div class="slide">
+  <div class="big-heart">💖</div>
+  <h1>Aubree</h1>
+  <p>
+    You are my person.  
+    My comfort.  
+    My heart.  
+    <br><br>
+    I choose you. Always.
+  </p>
+</div>
+
+<script>
+let i = 0;
+const slides = document.querySelectorAll(".slide");
+
+function next() {
+  slides[i].classList.remove("active");
+  i++;
+  slides[i].classList.add("active");
+}
+</script>
+
+</body>
+</html>
